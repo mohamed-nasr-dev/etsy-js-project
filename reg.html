@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registry Page</title>
+    <style>
+      body {
+        font-family: Guardian-egyptt;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ***************************************************************** */
+      /*HEADER SECTION*/
+      /* ***************************************************************** */
+      header {
+        width: 1190px;
+        display: flex;
+        margin: 12px auto 0 auto;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .logo {
+        color: #f1641e;
+        font-size: 38px;
+        /* font-weight: 500; */
+        cursor: pointer;
+        font-family: "Gideon Roman", serif;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .logo span {
+        font-size: 42px;
+      }
+      .categories-btn {
+        border: none;
+        background: none;
+        font-size: 14px;
+        margin: 0 6px;
+        padding: 5px 10px;
+      }
+      .categories-btn:hover {
+        background-color: #d1d0d0;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      /* categories-container */
+      .categories-container-a-img {
+        display: none;
+      }
+      .categories-container-a-img .categories {
+        width: 300px;
+      }
+      .categories-container-a-img .categories-imgs {
+        width: 600px;
+      }
+
+      /* **********************search***************** */
+      .search-container {
+        width: 55%;
+        position: relative;
+      }
+
+      #search {
+        width: 100%;
+        border-radius: 24px;
+        padding: 10px 20px;
+        height: 48px;
+        font-size: 16px;
+      }
+
+      #search:focus {
+        /* border: 1px double rgb(69, 69, 216); */
+        outline: 2px solid #2b3ebd;
+        outline-offset: 2px;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background-color: #f1641e;
+        font-size: 22px;
+        padding: 7px;
+        border-radius: 50%;
+        color: #fff;
+      }
+
+      .search-icon:hover {
+        cursor: pointer;
+        background-color: #ed9c73;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        transform: scale(125%);
+      }
+
+      /* **********************sign in button***************** */
+      .sign-btn {
+        border: none;
+        padding: 5px 10px;
+        background: none;
+        transform: all;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 5px;
+      }
+
+      .sign-btn:hover {
+        background-color: #d1d0d0;
+        border-radius: 20px;
+      }
+
+      /* icons */
+      .group-of-icons {
+        display: flex;
+        gap: 7px;
+        font-size: 24px;
+      }
+      .group-of-icons a {
+        cursor: pointer;
+        padding: 10px 10px;
+        color: #000;
+      }
+      .group-of-icons a:hover {
+        border-radius: 50%;
+        background-color: #eb966c;
+        color: #fff;
+      }
+
+      /* ***************************************************************** */
+      /*NAVIGATION SECTION*/
+      /* ***************************************************************** */
+      nav {
+        width: 1190px;
+        margin: 0 auto;
+      }
+
+      nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        padding: 4px 0 5px 0;
+      }
+
+      nav ul li {
+        padding: 10px 15px;
+      }
+
+      nav ul li:hover {
+        cursor: pointer;
+        background-color: #d1d0d0;
+        border-radius: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+      }
+
+      .border-bottom {
+        width: 100%;
+        border-bottom: 2px solid #d1d0d0;
+      }
+      .registry-section {
+        background-color: #1a3b38;
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .registry-section h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .registry-section p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .registry-section .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        border: #eef4f1 2px solid;
+      }
+
+      .registry-types {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+        background-color: #1a3b38;
+      }
+
+      .registry-type {
+        text-align: center;
+        max-width: 300px;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+      }
+
+      .registry-type img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      .registry-type h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .registry-type p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .registry-type .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: #000000;
+        text-decoration: none;
+        padding: 6px 60px;
+        border-radius: 30px;
+        border: #000000 2px solid;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fffbd8;
+      }
+
+      .images {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+      }
+
+      .images img {
+        width: 100%;
+        height: 400px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .reasons {
+        flex: 1;
+        background-color: #fffbd8;
+        padding: 40px;
+      }
+
+      .reasons h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .reason {
+        margin-bottom: 30px;
+      }
+
+      .reason h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .reason p {
+        font-size: 16px;
+        color: #666;
+      }
+
+      .page-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .header-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .icon-container {
+        margin-right: 20px;
+      }
+
+      .icon-container img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .page-title {
+        font-size: 32px;
+      }
+
+      .content-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      .question-item {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      .question-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .answer-content {
+        font-size: 16px;
+        color: #666;
+      }
+
+      .footer-section {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .help-link {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .help-link:hover {
+        text-decoration: underline;
+      }
+
+      .miniheader {
+        background-color: #0047ab;
+        padding: 20px;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .app-btn {
+        background-color: #ff5722;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+      }
+
+      .sec {
+        background-color: #0036ab;
+        padding: 10px 0;
+      }
+
+      .sec ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+      }
+
+      .sec ul li {
+        margin: 0 20px;
+      }
+
+      .sec ul li a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      /* ***************************************************************** */
+      /*FOOTER*/
+      /* ***************************************************************** */
+      .footer {
+        /* background-color: #233871;
+  color: white; */
+        /* padding: 20px 0; */
+        font-family: Arial, sans-serif;
+      }
+      .footer-top {
+        background-color: #3b67d9;
+        padding: 24px 0;
+        /* text-align: center; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .footer-top svg {
+        width: 25px;
+        /* stroke: #fff; */
+        fill: #fff;
+      }
+      .footer-top a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-bottom: 1px dashed #fff;
+      }
+      .footer-middle {
+        background-color: #2638c0;
+        display: flex;
+        /* justify-content: space-around; */
+        /* padding: 20px 0; */
+        /* text-align: left; */
+        width: 1190px;
+        margin: 0 auto;
+      }
+      .middle-box {
+        background-color: #2638c0;
+      }
+
+      .footer-middle h4 {
+        margin-bottom: 10px;
+      }
+      .footer-middle a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .footer-bottom {
+        background-color: #222222;
+        color: white;
+        padding: 18px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+      }
+      .footer-bottom-right {
+        display: flex;
+        align-items: center;
+      }
+      .footer-bottom-left {
+        padding: 8px 18px;
+      }
+      .footer-bottom-right a:hover {
+        border-bottom: 1px solid #fff;
+      }
+      .footer-bottom-left:hover {
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: #404040;
+      }
+
+      .footer-bottom a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .footer-bottom .social-icons {
+        margin-top: 10px;
+      }
+      .footer-bottom .social-icons a {
+        margin: 0 5px;
+      }
+      .download-etsy {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d1a7c;
+      }
+      .download-etsy svg {
+        background-color: #f1641e;
+        width: 100px;
+        padding: 10px;
+        fill: #fff;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .download-etsy button {
+        padding: 10px 20px;
+        background-color: #2638c0;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        transform: 0.3s;
+      }
+      .download-etsy button:hover {
+        box-shadow: 0 2px 10px #333;
+        cursor: pointer;
+      }
+
+      .shop-sell-about-help {
+        width: 65%;
+        display: flex;
+        /* align-items: center; */
+        padding: 36px;
+        gap: 80px;
+        color: #fff;
+      }
+
+      .shop-sell-about-help a {
+        font-size: 13px;
+        border-bottom: 1px solid transparent;
+      }
+      .shop-sell-about-help a:hover {
+        border-bottom: 1px solid #fff;
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .social-icons a {
+        border: none;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 50%;
+        transition: 0.5s;
+      }
+      .social-icons a:hover {
+        background-color: #4250bf;
+        border: none;
+      }
+      /* ******************************************************************** */
+      /* the main page */
+      /* ******************************************************************** */
+      body {
+        font-family: Guardian-egyptt;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin: 0 10px;
+      }
+
+      nav ul li a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      .registry-section {
+        background-color: #1a3b38;
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .registry-section h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .registry-section p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .registry-section .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        border: #eef4f1 2px solid;
+      }
+
+      .registry-types {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+        background-color: #1a3b38;
+      }
+
+      .registry-type {
+        text-align: center;
+        max-width: 300px;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+      }
+
+      .registry-type img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      .registry-type h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .registry-type p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .registry-type .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: #000000;
+        text-decoration: none;
+        padding: 6px 60px;
+        border-radius: 30px;
+        border: #000000 2px solid;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fffbd8;
+      }
+
+      .images {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+      }
+
+      .images img {
+        width: 100%;
+        height: 400px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .reasons {
+        flex: 1;
+        background-color: #fffbd8;
+        padding: 40px;
+      }
+
+      .reasons h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .reason {
+        margin-bottom: 30px;
+      }
+
+      .reason h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .reason p {
+        font-size: 16px;
+        color: #666;
+      }
+
+      .page-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .header-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .icon-container {
+        margin-right: 20px;
+      }
+
+      .icon-container img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .page-title {
+        font-size: 32px;
+      }
+
+      .content-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      .question-item {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      .question-item:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .question-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .answer-content {
+        font-size: 16px;
+        color: #666;
+      }
+
+      .footer-section {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .help-link {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .help-link:hover {
+        text-decoration: underline;
+      }
+
+      .miniheader {
+        background-color: #0047ab;
+        padding: 20px;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .question-title {
+        display: inline-block;
+      }
+      #downIcon {
+        float: left;
+      }
+      .answer-content {
+        display: none;
+      }
+      .icon {
+        float: right;
+      }
+      #up {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--the  header  contains logo , categories , search , sign in,  icons -->
+    <header>
+      <p class="logo"><span>E</span>tsy</p>
+      <div class="categories-container">
+        <button class="categories-btn">
+          <i class="fa-solid fa-bars"></i> Categories
+        </button>
+      </div>
+      <!-- *********************************************search input section********************************************* -->
+      <div class="search-container">
+        <input
+          type="search"
+          id="search"
+          placeholder="Search for everythisng"
+          list="titles"
+        />
+        <datalist id="titles"></datalist>
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+
+      <a href="LogIn.html" target="_blank"
+        ><button class="sign-btn">Sign in</button></a
+      >
+
+      <div class="group-of-icons">
+        <a href="#"><i class="fa-solid fa-heart"></i></a>
+        <a href="#"><i class="fa-solid fa-gift"></i></a>
+        <a href="./cart.html" target="_blank"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+      </div>
+
+      <!-- for categories its hidden -->
+      <!-- <div class="categories-container-a-img">
+          <div class="categories"></div>
+          <div class="categories-imgs"></div>
+        </div> -->
+    </header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li>
+          <a href="products.html" target="_blank"
+            ><i class="fa-solid fa-gift"></i> products</a
+          >
+        </li>
+        <li><a href="./reg.html">Registry</a></li>
+        <li><a href="./index.html#what-is-etsy-about">About</a></li>
+      </ul>
+    </nav>
+    <div class="border-bottom"></div>
+    <main>
+      <section class="registry-section">
+        <h1>Registry</h1>
+        <p>Make every milestone meaningful with extra-special gifts.</p>
+        <a href="#" class="btn">Find a registry →</a>
+      </section>
+
+      <section class="registry-types">
+        <div class="registry-type">
+          <img src="./images/wedding-banner.webp" alt="Wedding" />
+          <h2>Wedding Registry</h2>
+          <p>
+            Start your new life together with personalized pieces, well-crafted
+            housewares, and more.
+          </p>
+          <a href="#" class="btn">Get started</a>
+        </div>
+        <div class="registry-type">
+          <img src="./images/baby-banner.webp" alt="Baby" />
+          <h2>Baby Registry</h2>
+          <p>
+            Welcome your little one to the world with custom items and the
+            cutest, cuddliest creations.
+          </p>
+          <a href="#" class="btn">Get started</a>
+        </div>
+        <div class="registry-type">
+          <img src="./images/gift-banner.webp" alt="Gift" />
+          <h2>Gift Registry</h2>
+          <p>
+            Celebrate any occasion with a wishlist of incredible items for every
+            budget—straight from independent sellers.
+          </p>
+          <a href="#" class="btn">Get started</a>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="images">
+          <img src="./images/sm-masonry-grid.webp" alt="" />
+        </div>
+        <div class="reasons">
+          <h1>Reasons to love Etsy Registry</h1>
+          <div class="reason">
+            <span style="display: flex"
+              ><svg
+                style="width: 50px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 96 96"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <g
+                  clip-path="url(#Icon=Personalized, Style=None, Size=Base__a)"
+                >
+                  <path
+                    d="m49.9 23.522-1.2.1c-2 .2-3.9-1.2-4.1-3.2l-.1-1.2-2 .2.1 1.2c.2 2-1.2 3.9-3.2 4.1l-1.2.1.2 2 1.2-.1c2-.2 3.9 1.2 4.1 3.2l.1 1.2 2-.2-.1-1.2c-.1-1 .2-1.9.8-2.7.6-.8 1.5-1.3 2.5-1.4l1.2-.1-.3-2ZM32 73.822l-1.2.1c-1 .1-1.9-.2-2.7-.8-.8-.6-1.3-1.5-1.4-2.5l-.1-1.2-2 .2.1 1.2c.2 2-1.2 3.9-3.2 4.1l-1.2.1.2 2 1.2-.1c1-.1 1.9.2 2.7.8.8.6 1.3 1.5 1.4 2.5l.1 1.2 2-.2-.1-1.2c-.2-2 1.2-3.9 3.2-4.1l1.2-.1-.2-2Zm12.5-2s.8 3.2 3 3.2c1.724 0 2.64-2.156 2.967-2.929.072-.168.115-.27.133-.27l1.9.5a1.783 1.783 0 0 0-.05.145c-.263.807-1.482 4.554-4.95 4.554-3.8 0-5-4.5-5-4.7l2-.5Z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M60.4 55.722c0-3.6-2.9-6.4-6.5-6.4s-6.5 2.9-6.5 6.4c0 1.8.7 3.4 1.9 4.5-.5-.1-.9-.1-1.4-.1h-1.3c-.1 0-.3 0-.4.1-4.9.8-8.7 5.1-8.7 10.2 0 5.7 4.7 10.4 10.5 10.4s10.4-4.5 10.4-10.3c0-3.5-1.7-6.5-4.3-8.4 3.5 0 6.3-2.9 6.3-6.4ZM48 78.922c-4.7 0-8.5-3.8-8.5-8.4 0-.6.1-1.3.2-1.9 5.8.9 9-.7 10.5-1.9 1.7 3 3.4 4 6.1 4.9-.5 4.2-4.1 7.3-8.3 7.3Z"
+                  ></path>
+                  <path
+                    d="M23.633 46.895c.243.56 1.66 3.827 4.667 3.827.2 0 .4 0 .6-.1 3.5-.4 4.1-4.8 4.1-5l-2-.2c0 .1-.5 3.1-2.4 3.3-2 .2-3.1-2.6-3.1-2.6l-1.9.7a.706.706 0 0 1 .014.03l.019.043Z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M35.9 41.522c.6-1 .9-2.2.8-3.4-.3-2.9-3-4.9-5.8-4.5-.237 0-.412.063-.623.138l-.002.001-.175.061c-.7-2.4-3.1-4-5.6-3.6-1.4.2-2.6.9-3.5 2-.5.6-.8 1.2-.9 1.9-.9-.4-1.8-.6-2.8-.5-1.4.2-2.6.9-3.5 2-.9 1.1-1.2 2.5-1.1 3.8.1 1 .5 1.9 1.1 2.6-.6.3-1.2.8-1.6 1.4-.9 1.1-1.2 2.5-1.1 3.8.3 2.5 2.4 4.4 4.9 4.6v.8c.3 2.6 2.6 4.6 5.2 4.6h.6c1.2-.1 2.3-.7 3.1-1.6.5.1.9.1 1.4.1.4 0 .8 0 1.3-.1 2.7-.3 5.2-1.7 6.9-3.9 1.7-2.2 2.5-4.9 2.1-7.6-.2-.9-.4-1.8-.7-2.6Zm-3 8.9c-1.4 1.7-3.3 2.8-5.5 3.1-4.5.5-8.7-2.7-9.3-7.2-.3-2.2.3-4.4 1.7-6.1 1.4-1.7 3.3-2.8 5.5-3.1.15 0 .325-.025.5-.05s.35-.05.5-.05c4.1 0 7.7 3.1 8.3 7.3.2 2.2-.4 4.4-1.7 6.1Z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M96 6.722c0 2.7-1.7 5.9-5.1 9.1-5.8 5.5-18.1 14.4-20.6 16l-.5.3c.1.4.2.8.2 1.1.2 2.6-.9 5.3-2.7 7.4l10.1 39.3-59.3 15.3-.2-1-17.7-68.6 59.3-15.4.2 1 3.4 13c.7.2 1.3.5 1.8.8.05-.05.175-.2.363-.425a79 79 0 0 1 .737-.875l.58-.715c2.852-3.516 8.523-10.508 14.02-16.285 6.9-7.4 11.3-6.3 13.7-4 1.1 1 1.7 2.4 1.7 4Zm-76.4 86 55.4-14.3-9.2-36.2c-1 .8-2 1.4-3.2 1.9-2.4 1-4.9 1.5-7.6 1.5-1.7 0-3.4-.2-5.1-.6-1.1-.2-5.1-1.3-7.9-4.1l-1.1-1.1 1.5-.5c.1 0 2.3-.7 3.4-1.3.9-.4 3.8-2.1 4.7-5v-.1c.8-2.9 2.6-8.8 9.3-9H61l-3-11.1-55.4 14.3 17 65.6Zm45.5-52.6c.6-.6 1.2-1.2 1.6-1.9 1-1.5 1.5-3.2 1.3-4.9-.1-1.9-1.5-5.1-4.3-6.6-.7-.4-1.5-.7-2.3-.8-.6-.1-1.1-.1-1.7-.1-4.9.1-6.4 3.9-7.5 7.5v.1c-1.1 3.6-4.6 5.6-5.7 6.2-.6.3-1.3.6-2 .9.773.602 1.547.982 2.257 1.33l.343.17c1.1-.1 5.8-.9 7.7-4.1l1.7 1c-1.4 2.3-3.7 3.6-5.7 4.3 4 .8 7.5.5 10.9-.9 1.3-.5 2.4-1.3 3.4-2.2Zm2.5-15.1c-.2.2-.4.4-.5.6 1 1 2.4 2.5 3.2 3.9 3.9-2.7 14.2-10.2 19.3-15.1 2.9-2.7 4.5-5.5 4.5-7.6 0-1.1-.4-1.9-1.1-2.6-2.6-2.3-6.2-1-10.9 3.9-4.1 4.3-8.3 9.3-11.3 13 .9.8 2.1 2 3.2 3.4l-1.6 1.2c-1-1.2-2.1-2.3-2.9-3.1-.7.9-1.4 1.8-1.9 2.4Z"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="Icon=Personalized, Style=None, Size=Base__a">
+                    <path fill="#fff" d="M0 0h96v96H0z"></path>
+                  </clipPath>
+                </defs>
+              </svg>
+              <h2>Plenty of unique presents</h2>
+            </span>
+            <p>
+              From personalized pieces to custom creations, the independent
+              sellers on Etsy make it easy to find extraordinary gifts.
+            </p>
+          </div>
+          <div class="reason">
+            <span style="display: flex"
+              ><svg
+                style="width: 50px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 96 96"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M88.2 76.3c.6-1.9.9-4.2.9-6.9 0-6.58-3.777-9.98-6.773-12.676L82.3 56.7a96.168 96.168 0 0 0-.289-.263l-.017-.016-.018-.017C79.824 54.446 78.1 52.876 78.1 50.4V38h-1.5l.034-.976v-.023c.092-2.724.211-6.239.566-8.101.3-1.5 1.5-6.4 4.7-9.7 1.9 1.3 4.1 1.4 6.7-.6 1.1-.8 2.8-2.4 3.9-3.8.2-.8-.2-2.2-1.6-2-.332.047-.529.14-.708.223-.199.094-.376.177-.692.177-.4 0-1-.4-1-1.1 0-.187.078-.335.16-.493.05-.095.102-.194.14-.307.2-1.1-1.1-2.2-2.2-2-.189.031-.417.122-.653.216-.517.205-1.073.427-1.347.084-.2-.3-.1-.8 0-1.2.1-.8-.5-2.4-2.4-1.6-1.8 2.6-4.7 7.5-2.2 10.5.05.1.125.175.2.25.075.075.15.15.2.25-3.5 3.7-4.8 9-5.1 10.7-.453 1.992-.578 5.788-.671 8.64L74.6 38h-2c-.017-.368-.041-.935-.07-1.637v-.004c-.138-3.305-.4-9.586-.73-12.06-.2-1.5-1-6.2-2.9-9.9.1-.1.3-.2.4-.2 1.5-1 3-2.3 3.5-4.1.4-1.7-.1-3.7-1-5.3-.4-.8-.9-1.5-1.5-2.1-.6-.6-1.4-1.4-2.3-1.5-.8-.1-1.4.3-1.8 1-.147.295-.227.684-.308 1.084-.14.685-.286 1.4-.792 1.717-.435.217-.87-.038-1.267-.272A3.38 3.38 0 0 0 63.4 4.5c-.7-.3-1.5-.2-2.1.3-.7.6-.8 1.5-.9 2.4-.017.066-.03.136-.044.205-.07.348-.14.695-.556.695-.308 0-.653-.114-.99-.224a5.483 5.483 0 0 0-.61-.176c-.9-.2-2-.3-2.6.6-.4.5-.5 1.3-.1 1.8 0 .1 0 .3.1.4.9 1.6 1.9 3.2 3.5 4.2 1.4.9 3.1 1.3 4.7 1.3 1.1 0 2.2-.3 3.3-.7 1.4 2.7 2.3 6.4 2.7 9.3.34 2.385.609 8.833.743 12.051v.028c.024.548.042 1 .057 1.32H69v12.4c0 2.326-1.817 4.133-4.002 6.305l-.002.002-.496.494-.143.138C61.194 60.401 57.7 63.785 57.7 69.4c0 2.6.3 4.9.9 6.9h-5.9s0-.1-.1-.1c.6-.7.9-1.5.9-2.4 0-.9-.3-1.7-.9-2.4.6-.7.9-1.5.9-2.4 0-2.6-2.8-4.6-6.9-5.8.5-.2 1-.4 1.6-.7 3.1-1.6 5.3-4.6 5.3-7.2 0-1.5-.6-2.6-1.8-3.3-1.8-1-3.9-.6-5.2-.1 0-.8 0-1.9-.1-2.2H22.7c0 .3-.025.975-.05 1.65-.025.675-.05 1.35-.05 1.65 0 3.9.6 7.2 1.8 9.8-5.2 1.2-9.1 3.4-9.1 6.4 0 .9.3 1.7.9 2.4-.6.7-.9 1.5-.9 2.4 0 .9.3 1.7.9 2.4 0 0 0 .1-.1.1h-5.6L0 92.9h85.3L96 76.3h-7.8ZM65.9 58.6l.01-.009C68.505 56.094 71 53.696 71 50.4V40h5v10.4c0 3.488 2.384 5.586 4.874 7.777l.026.023.123.11c2.964 2.667 6.077 5.468 6.077 11.09 0 2.8-.3 5-1 6.9-.3.7-.6 1.4-.9 2-2 3.2-5.8 4.6-11.8 4.6-5.7 0-9.4-1.4-11.5-4.6-.4-.6-.7-1.3-1-2-.7-1.9-1.1-4.1-1.1-6.9 0-4.8 3.1-7.9 6.1-10.8ZM46.6 54c.8-.4 2.8-1.2 4.2-.3.5.3.8.8.8 1.6 0 1.6-1.5 4-4.2 5.5-.8.4-1.5.7-2.2.9.8-2.2 1.3-4.8 1.4-7.7Zm-21 10.5c2 2.9 5 4.5 9.1 4.5s7.1-1.6 9-4.5c4.8 1.1 7.9 2.9 7.9 4.5 0 .3-.1.7-.4 1-.275.457-.8.832-1.425 1.275l-.175.125c-.8.5-1.8.9-2.9 1.3-1.2.4-2.6.8-4.1 1.1-2.4.5-5.2.7-8.2.7-3 0-5.8-.3-8.2-.7-1.5-.3-2.9-.7-4.1-1.1-1.2-.4-2.1-.8-2.9-1.3-.7-.4-1.3-.9-1.6-1.4-.2-.3-.4-.7-.4-1 .2-1.7 3.4-3.5 8.4-4.5Zm-7.8 8.3c.5.4 1.1.7 1.8 1 .552.276 1.152.504 1.8.751.29.11.59.225.9.349 2.2.7 4.7 1.2 7.4 1.4 1.6.2 3.2.2 4.9.2 1.7 0 3.3-.1 4.9-.2 2.7-.3 5.2-.7 7.4-1.4 1-.3 1.9-.7 2.7-1.1.6-.3 1.2-.6 1.8-1 .2.3.4.7.4 1 0 .3-.1.7-.4 1-.275.457-.8.831-1.425 1.275l-.175.125c-.05 0-.075.025-.1.05-.025.025-.05.05-.1.05-1.3.8-3.2 1.5-5.5 2-2.7.6-5.9 1-9.5 1-3.6 0-6.8-.4-9.5-1-2.3-.5-4.2-1.2-5.5-2-.05 0-.075-.025-.1-.05-.025-.025-.05-.05-.1-.05-.7-.4-1.3-.9-1.6-1.4-.2-.3-.4-.7-.4-1 0-.3.2-.7.4-1Zm-.3 5.5c0-.2.1-.5.3-.7.4.3.8.5 1.2.7 3.7 2 9.7 3 15.5 3 5.8 0 11.8-1 15.5-3 .4-.2.9-.5 1.2-.7.2.2.3.5.3.7 0 .05.025.1.05.15.025.05.05.1.05.15 0 2.6-7.3 5.5-17.1 5.5s-17.1-2.9-17.1-5.5c0-.05.025-.1.05-.15.025-.05.05-.1.05-.15Zm74.8 0-8.1 12.6H3.7l8.1-12.6h3.7v.3c0 4.9 9.8 7.5 19.1 7.5s19.1-2.6 19.1-7.5v-.3h5.9c2.3 4.5 6.8 6.6 13.8 6.6 7.3 0 11.8-2.1 14-6.6h4.9Z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="m42.9 14.7 1 20.3-27.7 1.6-1.1-19.2 27.8-2.7Zm-1.1 18.5L41 16.9l-23.9 2.3.9 15.3 23.8-1.3Z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="m48.8 9.2 1.6 31-39.9 2.4-1.7-30 40-3.4Zm-.5 29.1-1.4-27-36 3.1 1.5 26 35.9-2.1Z"
+                ></path>
+              </svg>
+              <h2>Finds for every occasion</h2></span
+            >
+            <p>
+              Get something special for any occasion! From weddings to new
+              babies, holidays to housewarming parties, discover gifts for every
+              style and every budget.
+            </p>
+          </div>
+          <div class="reason">
+            <span style="display: flex"
+              ><svg
+                style="width: 50px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 96 96"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M96 11h-7V7H54a7 7 0 00-6 3.413A7 7 0 0042 7H7v4H0v57.089l34.917-2.972a22.4 22.4 0 0028.065 1.616l24.2 27.224 8.275-8.276-21.945-19.506L96 68.089V11zM54 9h33v50.922l-17.04-1.278a22.411 22.411 0 001.723-15.874l5.274.23.086-2-6-.261A22.468 22.468 0 0067.123 34H82v-2H65.216a22.37 22.37 0 00-15.259-6c-.321 0-.639.011-.957.024V14a5.006 5.006 0 015-5zM9 9h33a5.006 5.006 0 015 5v12.2c-1.71.225-3.388.648-5 1.26V14H14v14h26.711a22.552 22.552 0 00-7.022 5H14v2h17.99a22.445 22.445 0 00-3.374 6.477L13.964 42l.072 2 14.022-.5a22.446 22.446 0 00-.558 4.958c0 .529.025 1.052.061 1.572L13.929 51l.142 2 13.714-.98a22.256 22.256 0 002.024 6.343L9 59.922V9zm-7 4h5v49.078l23.88-1.792a22.513 22.513 0 002.22 2.979L2 65.911V13zm27.5 35.457a20.457 20.457 0 1120.457 20.457A20.48 20.48 0 0129.5 48.457zM67 63.059l11.309 10.056-3.694 3.694L64.559 65.5A22.54 22.54 0 0067 63.059zm27 2.852l-22.986-1.956-2.781-2.472c.214-.3.421-.605.621-.916L89 62.078V13h5v52.911z"
+                ></path>
+                <path
+                  d="M82 23H54v2h28v-2zm0-9H54v2h28v-2zM49.957 32a16.457 16.457 0 1016.457 16.457A16.476 16.476 0 0049.957 32zm0 30.914a14.458 14.458 0 1114.457-14.457 14.474 14.474 0 01-14.457 14.457z"
+                ></path>
+              </svg>
+              <h2>Tips and inspiration</h2></span
+            >
+
+            <p>
+              Our experts will spark some fresh ideas for your registry with new
+              trends, gifting roundups, and more.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-container">
+        <div class="header-section">
+          <div class="icon-container">
+            <img src="./images/qa.jpg" alt="Icon" />
+          </div>
+          <h1 class="page-title">Questions? We've got answers</h1>
+        </div>
+        <div class="content-section">
+          <div class="question-item">
+            <h2 class="question-title">
+              How do I add items to an Etsy registry?
+            </h2>
+            <i class="fa-solid fa-chevron-down down icon"></i>
+            <i class="fa-solid fa-chevron-up up icon" style="display: none"></i>
+            <div class="answer-content">
+              <p>
+                The process for adding items to your Etsy Registry is simple,
+                and it's the same no matter if you're adding gifts to your
+                Wedding, Baby, or Gift registry. When you find an item you'd
+                like to add to your registry, click the icon that looks like a
+                gift or click the 'Add to registry' button. You'll find this
+                button just below the 'Add to cart' button, but only if you've
+                already created an Etsy Registry. Personalizing your registry
+                gifts is easy, too. Any specific customization or
+                personalization details you request before adding items to your
+                registry will be pulled through and saved to your registry as
+                well. You can also add customizations right from your registry
+                page, too. Note, you can only create one of each type of
+                registry.
+              </p>
+            </div>
+          </div>
+          <div class="question-item">
+            <h2 class="question-title">How do I find an Etsy registry?</h2>
+            <i class="fa-solid fa-chevron-down down icon"></i>
+            <i class="fa-solid fa-chevron-up up icon" style="display: none"></i>
+            <div class="answer-content">
+              <p>
+                To find an Etsy Registry, simply click on “Find a registry” at
+                the top of this page. This will direct you to a search page,
+                where you can enter the names of your friends, family, and loved
+                ones to find the registry they've created. Once you find the
+                names you're looking for, simply click on that result and you'll
+                be taken to their Etsy Registry, where you can browse the gifts
+                they've selected and buy them something special!
+              </p>
+            </div>
+          </div>
+          <div class="question-item">
+            <h2 class="question-title">How do I access my registry?</h2>
+            <i class="fa-solid fa-chevron-down down icon"></i>
+            <i class="fa-solid fa-chevron-up up icon" style="display: none"></i>
+            <div class="answer-content">
+              <p>
+                To access your Etsy Registry, scroll to the top of the page and
+                click on your account picture. You will be presented with a
+                dropdown, and in that dropdown you'll see Etsy Registry next to
+                an icon of a gift. Click on Etsy Registry to access your
+                registry page, where you can add gifts, share your registry with
+                friends, family, and loved ones, and more.
+              </p>
+            </div>
+          </div>
+          <div class="question-item">
+            <h2 class="question-title">Is an Etsy Registry free?</h2>
+            <i class="fa-solid fa-chevron-down down icon"></i>
+            <i class="fa-solid fa-chevron-up up icon" style="display: none"></i>
+            <div class="answer-content">
+              <p>Yes! Creating an Etsy Registry is totally free of charge.</p>
+            </div>
+          </div>
+          <div class="question-item">
+            <h2 class="question-title">What can you register for on Etsy?</h2>
+            <i class="fa-solid fa-chevron-down down icon"></i>
+            <i class="fa-solid fa-chevron-up up icon" style="display: none"></i>
+            <div class="answer-content">
+              <p>
+                The possibilities are endless for Etsy Registry! If you're
+                getting married, create an Etsy wedding registry and fill it
+                with items like personalized gifts, housewares, and more. If
+                you're expecting parents ready to welcome a new child, you can
+                create an Etsy baby registry and add personalized presents,
+                toys, nursery decor, and more. And you can celebrate occasions
+                like birthdays, new homes, and anniversaries with special
+                presents by creating an Etsy gift registry. No matter what kind
+                of Etsy Registry you create, you'll be able to fill it with
+                extraordinary items straight from independent sellers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <p>
+            Still have questions? Visit our
+            <a href="#" class="help-link">registry help center</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <!-- *************************************************FOOTER**************************************************** -->
+    <footer class="footer">
+      <div class="footer-top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 96 96"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M60.1 38H49v11h-2V38H35.9c1.931 9.368 6.626 17 12.1 17 5.474 0 10.171-7.632 12.1-17zm-25.145-9.5c-.003 2.511.19 5.019.577 7.5H47V18.522l-10.925.238a41.683 41.683 0 00-1.12 9.74zM47 2.31c-4.1 1.24-8.18 7.168-10.38 14.437L47 16.52V2.31z"
+          ></path>
+          <path
+            d="M57.52 9.45l1.784-.9a31.775 31.775 0 012.558 7.65l9.117-.2.042 2-8.78.19c.55 3.41.818 6.857.8 10.31a50.836 50.836 0 01-.54 7.5H72v2h-9.846c-1.6 8.2-5.244 15.053-9.862 17.754C66.834 54.079 76 43.793 76 28.589c0-8.962-2.958-16.353-8.554-21.373A25.424 25.424 0 0049 1.04v15.438l10.83-.236a29.32 29.32 0 00-2.31-6.791zM43.51 55.643c-4.525-2.78-8.086-9.564-9.665-17.643H24v-2h9.5a50.84 50.84 0 01-.549-7.5 43.776 43.776 0 011.075-9.7l-9.009.2-.042-2 9.562-.208c1.89-6.667 5.317-12.436 9.432-15.143C29.71 4.412 20 15.13 20 28.589a27.636 27.636 0 0023.51 27.054z"
+          ></path>
+          <path
+            d="M61.045 28.5a60.27 60.27 0 00-.818-10.265L49 18.479v17.52h11.468c.388-2.48.58-4.988.577-7.5zM91.7 60c-2.182 4.525-5.734 8.62-10.832 13.719l-1.414-1.414c6.6-6.6 10.511-11.424 12.08-17.7.072-.415.137-.832.215-1.278.607-3.48.262-5.951-1.027-6.068-.72-.066-1.559.68-1.947 2.3a30.158 30.158 0 01-2.454 8.148c-1.78 4.663-8.575 11.048-8.865 11.318l-1.366-1.461c.068-.063 6.8-6.391 8.381-10.62l.061-.133a30.644 30.644 0 002.526-9.148c.11-1.886.095-6.433-1.793-6.552-2.085-.132-2.537 3.505-3.367 7.379-.259 1.21-.89 3.456-1.153 4.243a1.55 1.55 0 01-.09.177c-1.386 4.053-5.32 7.859-5.515 8.045-2.984 2.983-9.707 9.74-9.707 9.74L64.01 69.3s6.726-6.761 9.727-9.761a28.158 28.158 0 003.064-3.6c.5-.788 1.452-2.646.55-3.572-1.148-1.178-3.287-.648-6.08.748-1.98.992-11.21 7.08-15.384 13.34-1.99 2.985-2.772 8.839-3.042 14.2l13.18 2.724 6.8 1.359a8.92 8.92 0 011-.778c7.075-4.74 14.663-11.833 17.317-16.54 3.566-6.32 1.988-7.52.558-7.42zM52.774 82.673l-.77 10.252 1.993.15.595-7.913 10.616 2.123 3.765.778L70.02 93.2l1.96-.4-.885-4.338 2.592.518.392-1.96-8.447-1.69-12.858-2.657zm-29.242 2.055l6.77-1.354 13.206-2.73c-.27-5.36-1.052-11.214-3.042-14.2-4.173-6.258-13.4-12.347-15.384-13.34-2.793-1.4-4.932-1.925-6.08-.747-.9.926.054 2.784.55 3.572a28.158 28.158 0 003.064 3.6c3 3 9.727 9.76 9.727 9.76l-1.418 1.41s-6.723-6.757-9.707-9.74c-.2-.186-4.129-3.992-5.515-8.045a1.74 1.74 0 01-.09-.177c-.263-.787-.894-3.033-1.153-4.243-.83-3.874-1.282-7.511-3.367-7.38-1.888.12-1.9 4.667-1.793 6.553a30.645 30.645 0 002.526 9.148l.061.133c1.58 4.229 8.313 10.557 8.381 10.62L18.9 69.034c-.29-.27-7.084-6.655-8.865-11.318a30.16 30.16 0 01-2.454-8.148c-.388-1.622-1.226-2.37-1.947-2.3-1.287.114-1.634 2.586-1.025 6.065.078.446.143.863.215 1.278C6.394 60.883 10.3 65.7 16.9 72.307l-1.41 1.414c-5.1-5.1-8.65-9.194-10.832-13.72-1.434-.104-3.013 1.1.553 7.42 2.654 4.706 10.238 11.8 17.321 16.529a8.92 8.92 0 011 .778zm7.175.605l-8.433 1.687.393 1.96 2.591-.518-.885 4.338 1.96.4 1.047-5.137 3.75-.775 10.631-2.126.595 7.913 1.994-.15-.77-10.252-12.873 2.66z"
+          ></path>
+        </svg>
+        <a href="#">Etsy is powered by 100% renewable electricity.</a>
+      </div>
+      <div class="middle-box">
+        <div class="footer-middle">
+          <div class="download-etsy">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M6.5 3.1v6s2.1 0 3.2-.1c.6.1 1.1-.3 1.2-.9.1-.1.1-.1.1-.2l.3-1.3h1l-.2 2.8.1 2.9h-1l-.2-1.1c-.1-.6-.6-1.1-1.2-1.1C9 10 6.5 10 6.5 10v5c0 1 .5 1.4 1.6 1.4h3.4c1.2.2 2.4-.5 2.8-1.6l.9-2h.8c-.1.4-.5 4-.6 4.8 0 0-3.1-.1-4.4-.1H5.2l-3.5.1v-.9l1.1-.2c.9-.1 1.2-.3 1.2-1 0 0 .1-2.2.1-5.9S4 3.9 4 3.9c0-.8-.3-.9-1.1-1.1l-1.1-.2v-.9l3.4.1h6.5c1.3 0 3.5-.2 3.5-.2s-.1 1.3-.2 4.5h-.9L13.8 5c-.3-1.5-.8-2.2-1.7-2.2H7c-.5 0-.5.1-.5.3zm13.2.7h1v3.4L24 7l-.2 1.5-3.2-.2v6c0 1.7.6 2.4 1.5 2.4.7 0 1.4-.3 1.8-.9l.5.6c-.6 1.1-1.9 1.8-3.2 1.7-1.5.1-2.8-1-2.9-2.5V8.4h-1.9v-.8c1.6-.2 2.8-1.2 3.3-3.8zm7 10.4l.6 1.5c.3.9 1.2 1.4 2.1 1.3 1.4 0 2-.7 2-1.6 0-2.8-5.4-2-5.4-5.7 0-2.1 1.7-3.1 3.9-3.1 1.1 0 2.1.2 3.2.5-.2.9-.2 1.8-.2 2.7l-.9.1-.6-1.6c-.4-.5-1-.8-1.6-.7-1 0-2 .4-2 1.5 0 2.5 5.6 2 5.6 5.7 0 2.1-1.9 3.2-4.1 3.2-1.2 0-2.3-.3-3.4-.7.1-1 .1-2.1 0-3.1h.8zM33 22c.2-1 .4-2 .6-3.1l.9-.1.3 1.7c.1.5.5.8 1 .7 1.1 0 2.4-.6 3.7-2.9-.6-1.4-2.3-5.8-3.8-9.3-.4-.9-.5-1-1-1.1l-.4-.2V7l2.4.1 3-.2v.8l-.7.2c-.4 0-.8.3-.8.7 0 .1 0 .2.1.3.2.5 1.5 4.1 2.4 6.6.8-1.7 2.4-5.5 2.6-6.2.1-.2.1-.4.2-.6 0-.4-.4-.8-.8-.8l-.7-.1v-.9l2.3.1 2.1-.1v.8l-.4.4c-.6.1-1 .5-1.2 1.1l-3.6 8.4c-2.1 4.8-4.3 5.2-5.9 5.2-.8-.1-1.6-.3-2.3-.8z"
+              ></path>
+            </svg>
+            <button>Download the Etsy App</button>
+          </div>
+          <div class="shop-sell-about-help">
+            <div>
+              <h4>Shop</h4>
+              <a href="#">Gift cards</a>
+              <a href="#">Etsy Registry</a>
+              <a href="#">Sitemap</a>
+              <a href="#">Etsy blog</a>
+              <a href="#">Etsy United Kingdom</a>
+              <a href="#">Etsy Germany</a>
+              <a href="#">Etsy Canada</a>
+            </div>
+            <div>
+              <h4>Sell</h4>
+              <a href="#">Sell on Etsy</a>
+              <a href="#">Teams</a>
+              <a href="#">Forums</a>
+              <a href="#">Affiliates & Creators</a>
+            </div>
+            <div>
+              <h4>About</h4>
+              <a href="#">Etsy, Inc.</a>
+              <a href="#">Policies</a>
+              <a href="#">Investors</a>
+              <a href="#">Careers</a>
+              <a href="#">Press</a>
+              <a href="#">Impact</a>
+              <a href="#">Legal imprint</a>
+            </div>
+            <div>
+              <h4>Help</h4>
+              <a href="#">Help Center</a>
+              <a href="#">Privacy settings</a>
+              <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="#" class="footer-bottom-left"
+          ><i class="fa-solid fa-globe"></i> Egypt | English (US) | $ (USD)
+        </a>
+        <div class="footer-bottom-right">
+          <p>&copy; 2024 Etsy, Inc.</p>
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy</a>
+          <a href="#">Interest-based ads</a>
+          <a href="#">Local Shops</a>
+          <a href="#">Regions</a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/bcfcba3eb6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function dropdownbutton() {
+        var questionItems = document.getElementsByClassName("question-item");
+
+        for (var i = 0; i < questionItems.length; i++) {
+          questionItems[i].addEventListener("click", function () {
+            var answerContent = this.querySelector(".answer-content");
+            var downIcon = document.getElementById("down");
+            var upIcon = document.getElementById("up");
+
+            if (answerContent.style.display === "none") {
+              answerContent.style.display = "block";
+              downIcon.style.display = "none";
+              upIcon.style.display = "block";
+            } else {
+              answerContent.style.display = "none";
+              downIcon.style.display = "block";
+              upIcon.style.display = "none";
+            }
+          });
+        }
+      }
+
+      dropdownbutton();
+    </script>
+  </body>
+</html>
